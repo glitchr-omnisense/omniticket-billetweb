@@ -1,0 +1,22 @@
+[
+    {
+        "id": "1235",
+        "ext_id": "soiree",
+        "name": "Retro future shock",
+        "start": "2015-12-31 20:00:00",
+        "end": "2016-01-01 00:00:00",
+        "multiple": "1",
+        "place": "Paris",
+        "shop": "https://www.billetweb.fr/shop.php?event=soiree",
+        "online": "1",
+        "tax_rate": "20",
+        "tags": [
+            "rock"
+        ],
+        "image": "https://www.billetweb.fr/files/event/1235.jpg",
+        "cover": "https://www.billetweb.fr/files/event/cover_1235.jpg",
+        "confirmation_message": "Merci !",
+        "contact_name": "Organisateur",
+        "contact_email": "contact@organisateur.fr"
+    }
+]

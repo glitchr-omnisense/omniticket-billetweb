@@ -1,0 +1,53 @@
+{
+    "name": "omniticket/billetweb",
+    "type": "library",
+    "description": "Omniticket's Billetweb, under any PHP host: an organizer's events with their rates, sessions and places left, the attendees of an event (incrementally, as Billetweb asks), and a ticket's barcode checked at the door - read only, through Billetweb's API v1.",
+    "keywords": [
+        "billetweb",
+        "ticketing",
+        "tickets",
+        "events",
+        "attendees",
+        "check-in",
+        "framework-agnostic",
+        "omniticket"
+    ],
+    "homepage": "https://github.com/glitchr-studio/omniticket-billetweb",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marco Meyer",
+            "email": "marco.meyer@glitchr.io"
+        }
+    ],
+    "require": {
+        "php": ">=8.2",
+        "omniscient/omniticket": "^1.0@dev",
+        "symfony/http-client-contracts": "^3.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.0",
+        "symfony/http-client": "^6.4|^7.0|^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Omniticket\\Billetweb\\": ""
+        },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Omniticket\\Billetweb\\Tests\\": "Tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-1.x": "1.x-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

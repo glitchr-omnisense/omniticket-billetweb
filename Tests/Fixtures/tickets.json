@@ -1,0 +1,21 @@
+[
+    {
+        "id": "124",
+        "name": "Plein tarif",
+        "full_name": "Catégorie > Plein tarif",
+        "price": "15.00",
+        "category": "Catégorie",
+        "parent": "123",
+        "is_category": "0",
+        "description": "",
+        "label": "",
+        "visibility": 0,
+        "quota": "100",
+        "instructions": "",
+        "start_time": "",
+        "end_time": "",
+        "form": "0",
+        "tax": "20",
+        "commission": "0.31"
+    }
+]

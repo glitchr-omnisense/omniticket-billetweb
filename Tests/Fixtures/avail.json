@@ -1,0 +1,39 @@
+[
+    {
+        "type": "session",
+        "id": "398792",
+        "start": "2016-01-01 20:00:00",
+        "end": "2016-01-01 22:00:00",
+        "name": "Séance du soir",
+        "location": "Salle A",
+        "avail": "50",
+        "sales": "50"
+    },
+    {
+        "type": "event",
+        "avail": "-1",
+        "quota": "-1",
+        "total_sales": "120",
+        "status": "available"
+    },
+    {
+        "type": "category",
+        "id": "123",
+        "name": "Or",
+        "fullname": "Catégorie 1 > Or",
+        "parent": "0",
+        "avail": "180",
+        "quota": "200",
+        "status": "available"
+    },
+    {
+        "type": "ticket",
+        "id": "124",
+        "name": "Plein tarif",
+        "fullname": "Catégorie 1 > Or > Plein tarif",
+        "parent": "123",
+        "avail": "90",
+        "quota": "100",
+        "status": "available"
+    }
+]

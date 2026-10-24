@@ -1,0 +1,47 @@
+[
+    {
+        "id": "656087",
+        "ext_id": "T356-3899-E1000",
+        "barcode": "4475320",
+        "used": "1",
+        "lane": "controle n°1",
+        "used_date": "2016-06-15 22:39:24",
+        "firstname": "Prénom",
+        "name": "Nom",
+        "email": "jean@dupont.fr",
+        "ticket": "Plein tarif",
+        "ticket_id": "12693",
+        "category": "Catégorie 1 > Or",
+        "price": "1.00",
+        "original_price": "1.00",
+        "seating_location": "Tribune C > Rang 1 > Siège 2",
+        "last_update": "2016-03-02 10:41:36",
+        "reduction_code": "PROMO12",
+        "authorization_code": "",
+        "pass": "0",
+        "disabled": "0",
+        "product_management": "https://www.billetweb.fr/my_order.php?xxx",
+        "product_download": "https://www.billetweb.fr/download.php?xxx",
+        "order_id": "264751",
+        "order_ext_id": "C425-1306-E4170",
+        "order_firstname": "Prénom",
+        "order_name": "Nom",
+        "order_email": "contact@billetweb.fr",
+        "order_date": "2016-03-02 10:41:36",
+        "order_paid": "1",
+        "order_payment_type": "web",
+        "order_origin": "web",
+        "order_price": "1.00",
+        "order_session": "398792",
+        "session_start": "2016-02-01 20:00:00",
+        "order_accreditation": "0",
+        "order_management": "https://www.billetweb.fr/my_order.php?xxx",
+        "language": "fr",
+        "custom": {
+            "champ perso billet": "exemple"
+        },
+        "custom_order": {
+            "champ perso commande": "exemple"
+        }
+    }
+]
