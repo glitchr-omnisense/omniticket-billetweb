@@ -1,6 +1,6 @@
 # omniticket/billetweb
 
-[omniscient/omniticket](https://github.com/glitchr-studio/omniticket)'s Billetweb, under any PHP
+[omnisense/omniticket](https://github.com/glitchr-omnisense/omniticket)'s Billetweb, under any PHP
 host: an organizer's events with their rates, sessions and places left, the attendees of an event
 (incrementally, as Billetweb asks), and a ticket's barcode checked at the door. Reading only.
 
