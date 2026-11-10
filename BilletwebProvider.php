@@ -2,6 +2,9 @@
 
 namespace Omniticket\Billetweb;
 
+use Omnisense\Contracts\Policy\Backoff;
+use Omnisense\Contracts\Policy\DeclaresUsagePolicyInterface;
+use Omnisense\Contracts\Policy\UsagePolicy;
 use Omniticket\AttendeeListInterface;
 use Omniticket\Capabilities;
 use Omniticket\EventCatalogInterface;
@@ -28,8 +31,13 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
  * HTTP Basic header. Reading only: nothing is written (no "check" POST,
  * which would mark a ticket as scanned).
  */
-final class BilletwebProvider implements EventCatalogInterface, AttendeeListInterface, TicketCheckInterface
+final class BilletwebProvider implements EventCatalogInterface, AttendeeListInterface, TicketCheckInterface, DeclaresUsagePolicyInterface
 {
+    /** Billetweb's usage policy, as its terms read on the day it says (provenance.verifiedAt). */
+    public const POLICY = __DIR__.'/policy.json';
+
+    private static ?UsagePolicy $policy = null;
+
     private readonly JsonApi $api;
 
     public function __construct(
@@ -39,8 +47,9 @@ final class BilletwebProvider implements EventCatalogInterface, AttendeeListInte
         private readonly \DateTimeZone $timezone = new \DateTimeZone('Europe/Paris'),
         private readonly string $currency = 'EUR',
         private readonly string $url = 'https://www.billetweb.fr',
+        ?Backoff $backoff = null,
     ) {
-        $this->api = new JsonApi($http, 'Billetweb');
+        $this->api = new JsonApi($http, 'Billetweb', $backoff);
     }
 
     public function getName(): string
@@ -53,6 +62,11 @@ final class BilletwebProvider implements EventCatalogInterface, AttendeeListInte
         return 'Billetweb';
     }
 
+    public function usagePolicy(): UsagePolicy
+    {
+        return self::$policy ??= UsagePolicy::fromFile(self::POLICY);
+    }
+
     public function capabilities(): Capabilities
     {
         return new Capabilities(
@@ -63,6 +77,7 @@ final class BilletwebProvider implements EventCatalogInterface, AttendeeListInte
             widget: true,
             terms: ['https://www.billetweb.fr/bo/api.php'],
             limits: ['attendee functions: 10 calls a minute', 'fair use, monitored: keep the data on your side and read attendees incrementally (updatedSince); abuse may suspend the key'],
+            policy: $this->usagePolicy(),
         );
     }
 

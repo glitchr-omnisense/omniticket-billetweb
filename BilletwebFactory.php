@@ -45,6 +45,7 @@ final class BilletwebFactory extends ProviderFactory
             new \DateTimeZone($c->string('timezone') ?? 'Europe/Paris'),
             $c->string('currency') ?? 'EUR',
             rtrim($c->string('url') ?? 'https://www.billetweb.fr', '/'),
+            backoff: $c->backoff(),
         );
     }
 }

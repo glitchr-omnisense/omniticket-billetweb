@@ -1,0 +1,48 @@
+{
+    "$schema": "https://github.com/glitchr-omnisense/contracts/blob/1.x/resources/usage-policy.schema.json",
+    "provider": "billetweb",
+    "rateLimits": [
+        {
+            "max": 10,
+            "window": "minute",
+            "scope": "key",
+            "operations": [
+                "attendees",
+                "check"
+            ],
+            "note": "\"Les fonctions \\\"attendees\\\" sont limitées à 10 appels par minute\" (api.php): attendees() and check() both call /api/event/{id}/attendees."
+        }
+    ],
+    "rights": {
+        "commercial": "unknown",
+        "openSourceRequired": null,
+        "caching": {
+            "permission": "unknown",
+            "maxTtl": null
+        },
+        "storage": "allowed",
+        "redistribution": "unknown",
+        "attribution": {
+            "required": false,
+            "text": null,
+            "url": null,
+            "where": []
+        },
+        "licence": null
+    },
+    "requirements": {
+        "key": true,
+        "userAgent": {
+            "required": false,
+            "pattern": null
+        }
+    },
+    "provenance": {
+        "terms": "https://www.billetweb.fr/bo/api.php",
+        "policy": "https://www.billetweb.fr/bo/api.php",
+        "verifiedAt": "2026-11-10",
+        "declaredBy": "maintainer",
+        "contact": null,
+        "notes": "No figure for the other functions: the API is under fair use and monitored; Billetweb asks to store the data on your side and read attendees incrementally (updatedSince), and any abuse, deliberate or not, may suspend the key. The API page states no rule on commercial use, caching, redistribution or attribution, and links no separate terms of use. The key is a password: give it only to a trusted provider; a site stays responsible for what its AI agents do with it."
+    }
+}

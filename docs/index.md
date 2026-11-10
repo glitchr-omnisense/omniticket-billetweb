@@ -116,6 +116,16 @@ Not run live (no account).
 - An event Billetweb does not list: `NotFoundException` (`Billetweb has no event "<id>".`).
 - A network failure: `UnreachableException`.
 
+## Usage policy
+
+Declared as data in `policy.json` (omnisense/contracts' schema), read on 2026-11-10 at
+[api.php](https://www.billetweb.fr/bo/api.php): the attendee functions - `attendees()` and
+`check()` - 10 calls a minute per key; the rest under fair use, monitored, with no figure. Storage
+allowed (Billetweb asks to keep the data on your side and read attendees incrementally); commercial
+use, caching, redistribution and attribution unknown: the page does not say. A key is needed.
+Through omniticket's registry every call is checked against it, a 429 and its `Retry-After` hold
+the next calls, and a site may tighten it, never loosen it.
+
 ## Verified, and not
 
 `Tests/BilletwebProviderTest.php`, against the examples of Billetweb's OpenAPI description as

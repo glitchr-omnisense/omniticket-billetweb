@@ -41,6 +41,16 @@ the door at more than 10 tickets a minute keeps the attendee list itself (`atten
 No PHP client of Billetweb's API was found to reuse (Billetweb publishes the OpenAPI description
 only).
 
+## Usage policy
+
+Declared as data in `policy.json` (omnisense/contracts' schema), read on 2026-11-10 at
+[api.php](https://www.billetweb.fr/bo/api.php): the attendee functions - `attendees()` and
+`check()` - 10 calls a minute per key; the rest under fair use, monitored, with no figure. Storage
+allowed (Billetweb asks to keep the data on your side and read attendees incrementally); commercial
+use, caching, redistribution and attribution unknown: the page does not say. A key is needed.
+Through omniticket's registry every call is checked against it, a 429 and its `Retry-After` hold
+the next calls, and a site may tighten it, never loosen it.
+
 ## Verified, and not
 
 - Verified (the core's harness, PHP 8.4): events, one event whole (rates, sessions, places left,

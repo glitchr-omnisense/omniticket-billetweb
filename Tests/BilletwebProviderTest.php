@@ -94,7 +94,7 @@ final class BilletwebProviderTest extends TestCase
     {
         $registry = new Registry([new BilletwebFactory(self::http())], ['box_office' => ['factory' => 'billetweb', 'options' => ['user' => 'user-example', 'key' => 'key-example-not-a-real-key']]]);
 
-        self::assertInstanceOf(BilletwebProvider::class, $registry->catalog('box_office'));
+        self::assertInstanceOf(BilletwebProvider::class, $registry->get('box_office'));
         self::assertSame(['catalog', 'attendees', 'check'], $registry->get('box_office')->capabilities()->contracts());
         self::assertSame(['1235'], array_map(static fn (Event $e) => $e->id, [...$registry->catalog('box_office')->events(new EventQuery(past: true))]));
         $this->expectException(InvalidConfigException::class);
