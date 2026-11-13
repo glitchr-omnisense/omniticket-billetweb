@@ -4,6 +4,37 @@
 host: an organizer's events with their rates, sessions and places left, the attendees of an event
 (incrementally, as Billetweb asks), and a ticket's barcode checked at the door. Reading only.
 
+## Install and a first call
+
+```sh
+composer require omniticket/billetweb
+```
+
+No account for this first call: Billetweb's answer is recorded (`Omniticket\Testing\RecordedHttpClient`
+answers in place of the API), so nothing leaves the process. A real call needs a Billetweb account:
+the user id and an API key from its back office (a read-only key is enough).
+
+```php
+<?php
+
+require __DIR__.'/vendor/autoload.php';
+
+use Omniticket\Billetweb\BilletwebFactory;
+use Omniticket\Testing\RecordedHttpClient;
+
+// Billetweb's answer, recorded: nothing sent. HttpClient::create() (symfony/http-client) for a real call.
+$http = RecordedHttpClient::routes([
+    'GET /api/events' => '[{"id": "1235", "name": "Retro future shock", "start": "2036-12-31 20:00:00", "end": "2037-01-01 02:00:00", "place": "Paris", "shop": "https://www.billetweb.fr/shop.php?event=soiree", "online": "1"}]',
+]);
+$billetweb = (new BilletwebFactory($http))->create(['user' => 'recorded', 'key' => 'recorded']);
+
+foreach ($billetweb->events() as $event) {
+    echo $event->title, ' ', $event->start?->format('d/m/Y H:i'), ' ', $event->venue, "\n";   // Retro future shock 31/12/2036 20:00 Paris
+}
+```
+
+With your key, through the family's registry:
+
 ```php
 use Omniticket\Billetweb\BilletwebFactory;
 use Omniticket\Registry;
